@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>Practica 1</h1>
+  <form id="formP1">
+    <div class="row">
+      <div class="col col-md-12 col-sm-12">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Unidades</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="unidades"
+            placeholder="Número de unidades del producto"
+            required
+          />
+        </div>
+      </div>
+      <div class="col col-md-12 col-sm-12">
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <input
+            type="number"
+            class="form-control"
+            aria-label="Amount"
+            id="precioUnitario"
+            placeholder="Precio unitario"
+            required
+          />
+        </div>
+      </div>
+      <div class="col col-md-12 col-sm-12">
+        <button type="button" class="btn btn-primary" id="c">Calcular</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="alert alert-primary" role="alert" id="alert" hidden>
+        
+      </div>
+    </div>
+  </div>
+</div>
