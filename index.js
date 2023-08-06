@@ -11,6 +11,9 @@ let subtotal = 0;
 let descuento = 0;
 let porcentajeAplicado = 0;
 
+/**
+ * Agregar evento click a botón de calcular
+ */
 document.getElementById('c').addEventListener('click', onSubmit);
 
 /**
