@@ -14,7 +14,8 @@ let porcentajeAplicado = 0;
 document.getElementById('c').addEventListener('click', onSubmit);
 
 /**
- *
+ *Función para inicializar proceso principal
+ *@return {void}
  */
 function onSubmit(e) {
   let unidades = document.getElementById('unidades').value;
@@ -70,6 +71,9 @@ function aplicarDescuento(porcentajeImpuesto, precioUnitario) {
   return precioUnitario * porcentajeImpuesto;
 }
 
+/**
+ * Función para mostrar etiqueta de montos
+ */
 function setAlert() {
   let formatoMoneda = new Intl.NumberFormat('en-US', {
     style: 'currency',
