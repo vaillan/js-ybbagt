@@ -99,7 +99,7 @@ function setAlert() {
     )}</span>
   </p>
  
-  <p>Total:
+  <p>Total a pagar:
     <span class="badge text-bg-success">${formatoMoneda.format(total)}</span>
   </p>
 
