@@ -5,7 +5,7 @@ const _ = require('lodash');
 /**
  * Variables globales
  */
-let porcentajeDescuentos = [40, 20, 10];
+const porcentajeDescuentos = [40, 20, 10];
 let total = 0;
 let subtotal = 0;
 let descuento = 0;
