@@ -1,9 +1,9 @@
-// Import stylesheets
+// Imports section
 import './style.css';
 const _ = require('lodash');
 
 /**
- * Variables generales
+ * Variables globales
  */
 let porcentajeDescuentos = [40, 20, 10];
 let total = 0;
@@ -12,8 +12,9 @@ let descuento = 0;
 let porcentajeAplicado = 0;
 
 /**
- * Agregar evento click a botón de calcular
+ * Procesos Generales
  */
+
 document.getElementById('c').addEventListener('click', onSubmit);
 
 /**
@@ -37,30 +38,32 @@ function onSubmit(e) {
 function calcular(unidades, precioUnitario) {
   if (unidades > 100) {
     //40%.
-    subtotal = precioUnitario;
-    descuento = aplicarDescuento(porcentajeDescuentos[0] / 100, subtotal);
-    total = subtotal - descuento;
-    porcentajeAplicado = porcentajeDescuentos[0];
+    setVariablesGlobales(porcentajeDescuentos[0], precioUnitario)
   } else if (_.inRange(unidades, 25, 100)) {
     //20%.
-    subtotal = precioUnitario;
-    descuento = aplicarDescuento(porcentajeDescuentos[1] / 100, subtotal);
-    total = subtotal - descuento;
-    porcentajeAplicado = porcentajeDescuentos[1];
+    setVariablesGlobales(porcentajeDescuentos[1], precioUnitario)
   } else if (_.inRange(unidades, 10, 24)) {
     //10%
-    subtotal = precioUnitario;
-    descuento = aplicarDescuento(porcentajeDescuentos[2] / 100, subtotal);
-    total = subtotal - descuento;
-    porcentajeAplicado = porcentajeDescuentos[2];
+    setVariablesGlobales(porcentajeDescuentos[2], precioUnitario)
   } else {
     if (unidades < 10) {
-      subtotal = precioUnitario;
-      descuento = 0;
-      total = subtotal;
-      porcentajeAplicado = 0;
+      setVariablesGlobales(0, precioUnitario)
     }
   }
+}
+
+/**
+ * Configura variables globales
+ * 
+ * @param {integer} procentajeDescuento
+ * @param {integer} precioUnitario
+ * @returns {void}
+ */
+function setVariablesGlobales(procentajeDescuento, precioUnitario) {
+  subtotal = precioUnitario;
+  descuento = aplicarDescuento(procentajeDescuento / 100, subtotal);
+  total = subtotal - descuento;
+  porcentajeAplicado = procentajeDescuento;
 }
 
 /**
@@ -76,6 +79,7 @@ function aplicarDescuento(porcentajeImpuesto, precioUnitario) {
 
 /**
  * Función para mostrar etiqueta de montos
+ * @return {void}
  */
 function setAlert() {
   let formatoMoneda = new Intl.NumberFormat('en-US', {
